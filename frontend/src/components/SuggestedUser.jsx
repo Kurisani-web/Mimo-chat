@@ -17,6 +17,7 @@ const SuggestedUser = ({ user }) => {
 					<Text color={"gray.light"} fontSize={"sm"}>
 						{user.name}
 					</Text>
+					{/*<Image src='/verified.png' w={4} h={4} ml={1} />*/}
 				</Box>
 			</Flex>
 			{/* right side */}

@@ -71,7 +71,7 @@ export default function UpdateProfilePage() {
 					p={6}
 				>
 					<Heading lineHeight={1.1} fontSize={{ base: "2xl", sm: "3xl" }}>
-						User Profile Edit
+						Profile Edit
 					</Heading>
 					<FormControl id='userName'>
 						<Stack direction={["column", "row"]} spacing={6}>
@@ -97,7 +97,7 @@ export default function UpdateProfilePage() {
 						/>
 					</FormControl>
 					<FormControl>
-						<FormLabel>User name</FormLabel>
+						<FormLabel>Username</FormLabel>
 						<Input
 							placeholder='johndoe'
 							value={inputs.username}

@@ -124,7 +124,7 @@ const Post = ({ post, postedBy }) => {
 							>
 								{user?.username}
 							</Text>
-							<Image src='/verified.png' w={4} h={4} ml={1} />
+							{user?.email === 'kurisanim2@gmail.com' && <Image src='/verified.png' w={4} h={4} ml={1} />}
 						</Flex>
 						<Flex gap={4} alignItems={"center"}>
 							<Text fontSize={"xs"} width={36} textAlign={"right"} color={"gray.light"}>
