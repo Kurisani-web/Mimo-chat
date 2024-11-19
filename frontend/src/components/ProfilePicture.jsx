@@ -18,10 +18,14 @@ const ProfilePicture = ({ isOpen, onClose, user }) => {
       <ModalContent>
         <ModalCloseButton />
         <ModalBody display="flex" flexDirection="column" alignItems="center" p={4}>
-          {/* Username */}
-          <Box fontWeight="bold" fontSize="lg" textAlign="center" mb={4}>
-            {user.name}
-          </Box>
+            {/* Username */}
+            <Box fontWeight="bold" fontSize="lg" textAlign="center" mb={4} display="inline-flex" alignItems="center">
+                {user.username}
+                {user?.email === 'kurisanim2@gmail.com' && (
+                    <Image src='/verified.png' w={4} h={4} ml={1} alt="Verified badge" />
+                )}
+            </Box>
+
 
           {/* Profile Picture */}
           <Image
