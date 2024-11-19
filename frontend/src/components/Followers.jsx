@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+{/*import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 
@@ -50,4 +50,4 @@ const Followers = () => {
   );
 };
 
-export default Followers;
+export default Followers;*/}
