@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, Flex, Text, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import useFollowUnfollow from "../hooks/useFollowUnfollow";
 

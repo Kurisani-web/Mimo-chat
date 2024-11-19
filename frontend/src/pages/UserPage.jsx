@@ -45,6 +45,11 @@ const UserPage = () => {
 
 	if (!user && !loading) return <h1>User not found</h1>;
 
+	if (!Array.isArray(posts)) {
+		console.error("Posts is not an array", posts);
+		return; // or handle it based on your app needs
+	}	
+
 	return (
 		<>
 			<UserHeader user={user} />

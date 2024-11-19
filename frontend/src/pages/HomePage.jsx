@@ -58,6 +58,10 @@ const HomePage = () => {
         bottom="20px"
         right="20px"
         zIndex={10}
+        bg="blue.500" // Background color
+        color="white" // Text color
+        _hover={{ bg: "blue.600" }} // Background color on hover
+        _active={{ bg: "blue.700" }} // Background color on click
       >
         Suggested Users
       </Button>

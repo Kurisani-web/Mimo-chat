@@ -108,6 +108,7 @@ const Actions = ({ post }) => {
 	return (
 		<Flex flexDirection='column'>
 			<Flex gap={3} my={2} onClick={(e) => e.preventDefault()}>
+				{/* Like Button */}
 				<svg
 					aria-label='Like'
 					color={liked ? "rgb(237, 73, 86)" : ""}
@@ -125,6 +126,8 @@ const Actions = ({ post }) => {
 					></path>
 				</svg>
 
+
+				{/* Comment Button */}
 				<svg
 					aria-label='Comment'
 					color=''
@@ -145,8 +148,8 @@ const Actions = ({ post }) => {
 					></path>
 				</svg>
 
-				{/*<RepostSVG />
-				<ShareSVG />*/}
+				{/*<RepostSVG />*/}
+				{/*<ShareSVG />*/}
 			</Flex>
 
 			<Flex gap={2} alignItems={"center"}>

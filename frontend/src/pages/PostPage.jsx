@@ -78,7 +78,7 @@ const PostPage = () => {
 						<Text fontSize={"sm"} fontWeight={"bold"}>
 							{user.username}
 						</Text>
-						{user?.email === 'kurisanim2@gmail.com' && <Image src='/verified.png' w='4' h={4} ml={4} />}
+						{user?.email === 'kurisanim2@gmail.com' && <Image src='/verified.png' w={4} h={4} ml={1} />}
 					</Flex>
 				</Flex>
 				<Flex gap={4} alignItems={"center"}>
