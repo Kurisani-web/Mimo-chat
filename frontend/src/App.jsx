@@ -40,7 +40,7 @@ function App() {
 					{/*<Route path="/followers/:userId" element={<Followers />} />*/}
 					<Route path='/:username/post/:pid' element={<PostPage />} />
 					<Route path='/chat' element={user ? <ChatPage /> : <Navigate to={"/auth"} />} />
-					<Route path='/settings' element={user ? <SettingsPage /> : <Navigate to={"/auth"} />} />
+					<Route path='/settings' element={user ? <SettingsPage user={user} /> : <Navigate to={"/auth"} />} />
 				</Routes>
 			</Container>
 		</Box>
