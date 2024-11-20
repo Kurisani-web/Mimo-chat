@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Flex, Stack, Switch, Text, Tooltip, useColorMode } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Link, Stack, Switch, Text, Tooltip, useColorMode } from "@chakra-ui/react";
 import useShowToast from "../hooks/useShowToast";
 import useLogout from "../hooks/useLogout";
 import { FiLogOut } from "react-icons/fi";
@@ -36,10 +36,12 @@ export const SettingsPage = ({user}) => {
 			//p={2}
 			//w="100%"
 			//maxW="600px"
-			//mx="auto"
+			mx="auto"
 			//h="100vh"
-			//overflowY="auto"
-			//boxShadow="md"
+			overflowY="auto"
+			//boxShadow="m"
+			//borderRadius="lg"
+			//borderWidth="1px"
 		>
 
 			<Text fontSize="2xl" fontWeight="bold" mb={4}>
@@ -47,7 +49,7 @@ export const SettingsPage = ({user}) => {
       		</Text>
 			<Stack spacing={6}>
 				{/* Freeze Account */}
-				<Box>
+				{/*<Box>
 					<Flex alignItems="center" justifyContent="space-between">
 						<Box>
 							<Text fontWeight="bold">Freeze Your Account</Text>
@@ -85,7 +87,7 @@ export const SettingsPage = ({user}) => {
 							</Tooltip>
 						</Box>
 					</Flex>
-				</Box>
+				</Box>*/}
 
 				{/* Appearance Settings */}
 				<Box>
@@ -109,8 +111,19 @@ export const SettingsPage = ({user}) => {
 				<Divider />
 
 				{/* Report an Issue */}
-				<Box>
-					<Flex alignItems="center" justifyContent="space-between">
+				<Box
+					p={4}
+					w="100%"
+					maxW="600px"
+					mx="auto"
+					//h="100vh"
+					overflowY="auto"
+					boxShadow="md"
+					borderRadius="lg"
+					borderWidth="1px"
+				
+				>
+					<Flex alignItems="center" justifyContent="space-between" mb={4}>
 						<Box>
 							<Text fontWeight="bold">Report an Issue</Text>
 							<Text color={"gray.600"} fontSize={"sm"} my={2}>
@@ -120,7 +133,7 @@ export const SettingsPage = ({user}) => {
 						<Box ml={4}>
 						<Button 
 							onClick={()=> window.location.href = "mailto:kurisani2@gmail.com"} 
-							backgroundColor={"transparent"}  // Set custom background color
+							backgroundColor={"teal"}  // Set custom background color
 							borderRadius="md"          // Set border radius for rounded corners
 							padding="5px 10px"         // Set padding for the button
 							fontSize="14px"            // Set font size
@@ -132,24 +145,97 @@ export const SettingsPage = ({user}) => {
 							>
 							Report
 						</Button>
-
 						</Box>
 					</Flex>
+					<Box>
+						<Text fontWeight="bold">Terms and Privacy Policy</Text>
+						<Text color={"gray.600"} fontSize={"xs"} my={2}>
+							By using our service, you agree to{" "}
+							<Link 
+								color="teal.500" 
+								href="https://your-terms-url.com" 
+								isExternal
+								textDecoration="underline"
+							>
+								our terms
+							</Link>{" "}
+							and{" "}
+							<Link 
+								color="teal.500" 
+								href="https://your-privacy-policy-url.com" 
+								isExternal
+								textDecoration="underline"
+							>
+								privacy policy
+							</Link>.
+						</Text>
+					</Box>
 				</Box>
-				<Divider />
-				<Divider />
 
-				{/* Logout */}
-				<Box>
-					<Flex alignItems={"center"} justifyContent={"space-between"}>
+				{/* 2nd section */}
+				<Box 
+					p={4}
+					w="100%"
+					maxW="600px"
+					mx="auto"
+					overflowY="auto"
+					boxShadow="md"
+					borderRadius="lg"
+					borderWidth="1px"
+					mb={8}
+				>
+					{/* Freeze Your Account Section */}
+					<Flex alignItems={"center"} justifyContent={"space-between"} mb={4}>
+						<Box>
+							<Text fontWeight="bold">Freeze Your Account</Text>
+							<Text fontSize={"sm"} my={2} color={"gray.600"}>
+								You can unfreeze your account anytime by logging in.
+							</Text>
+						</Box>
+						<Box ml={4}>
+							<Tooltip
+								label="Freeze Your Account"
+								aria-label="Freeze account tooltip"
+								hasArrow
+								bg="teal.500"          // Background color
+								color="white"          // Text color
+								fontSize="sm"          // Font size
+								p={3}                  // Padding
+								borderRadius="md"      // Rounded corners
+								boxShadow="md"         // Shadow effect
+								_hover={{
+									bg: "teal.400",      // Background color when hovered
+								}}
+								isOpen={false}         // Ensure it doesn't stay open permanently
+								shouldWrapChildren     // This makes sure Tooltip works correctly with children
+							>
+								<Box
+									as="button"          // Makes the icon behave like a button
+									onClick={freezeAccount} // onClick behavior
+									_hover={{
+										color: "red.500",  // Color change on hover
+										transform: "scale(1.1)", // Scale effect on hover
+									}}
+								>
+									<FaShieldAlt size={25} />
+								</Box>
+							</Tooltip>
+						</Box>
+					</Flex>
+
+					{/* Logout Section */}
+					<Flex alignItems={"center"} justifyContent={"space-between"} mb={4}>
 						<Box>
 							<Text fontWeight="bold">Logout</Text>
 						</Box>
-						<Box ml={4}>
+						
+						{/* Aligning the Logout Icon (button) to the right */}
+						<Box ml="auto"> {/* Changed to ml="auto" to push it to the right */}
 							<FiLogOut 
 								size={25} 
 								color={"red"} 
 								onClick={logout}
+								cursor={"pointer"}
 							/>
 						</Box>
 					</Flex>
