@@ -1,4 +1,15 @@
-import { Box, Button, Divider, Flex, Link, Stack, Switch, Text, Tooltip, useColorMode } from "@chakra-ui/react";
+import { 
+	Box, 
+	Button, 
+	Divider, 
+	Flex, 
+	Link, 
+	Stack, 
+	Switch, 
+	Text, 
+	Tooltip, 
+	useColorMode 
+} from "@chakra-ui/react";
 import useShowToast from "../hooks/useShowToast";
 import useLogout from "../hooks/useLogout";
 import { FiLogOut } from "react-icons/fi";
@@ -155,7 +166,12 @@ export const SettingsPage = ({user}) => {
 								color="teal.500" 
 								href="https://your-terms-url.com" 
 								isExternal
-								textDecoration="underline"
+								textDecoration={'underline'}
+								cursor={'pointer'}
+								_hover={{
+									textDecoration: "none",
+									color: "teal.400"
+								}}
 							>
 								our terms
 							</Link>{" "}
@@ -165,6 +181,11 @@ export const SettingsPage = ({user}) => {
 								href="https://your-privacy-policy-url.com" 
 								isExternal
 								textDecoration="underline"
+								_hover={{
+									textDecoration: "none",
+									color: "teal.400",
+									cursor:"pointer"
+								}}
 							>
 								privacy policy
 							</Link>.
@@ -239,6 +260,14 @@ export const SettingsPage = ({user}) => {
 							/>
 						</Box>
 					</Flex>
+					
+					<Divider />
+
+					<Box>
+						<Text color={"gray.600"} fontSize={"sm"} my={2}>
+							2024 © Mimo
+						</Text>
+					</Box>
 				</Box>
       		</Stack>
 		</Box>
