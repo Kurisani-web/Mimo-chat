@@ -131,9 +131,9 @@ const MessageContainer = () => {
         <Avatar src={selectedConversation.userProfilePic} size={"sm"} />
         <Text display={"flex"} alignItems={"center"}>
           {selectedConversation.username}
-          {currentUser?.email === "kurisanim2@gmail.com" && (
+          {/*{currentUser?.email === "kurisanim2@gmail.com" && (
             <Image src="/verified.png" w={4} h={4} ml={1} />
-          )}
+          )}*/}
         </Text>
       </Flex>
 

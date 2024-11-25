@@ -13,7 +13,7 @@ import {
 import useShowToast from "../hooks/useShowToast";
 import useLogout from "../hooks/useLogout";
 import { FiLogOut } from "react-icons/fi";
-import { FaShieldAlt } from "react-icons/fa";
+import {IoIosSnow } from "react-icons/io";
 
 export const SettingsPage = ({user}) => {
 	const showToast = useShowToast();
@@ -256,7 +256,7 @@ export const SettingsPage = ({user}) => {
 										transform: "scale(1.1)", // Scale effect on hover
 									}}
 								>
-									<FaShieldAlt size={25} />
+									<IoIosSnow size={25} />
 								</Box>
 							</Tooltip>
 						</Box>
@@ -270,7 +270,7 @@ export const SettingsPage = ({user}) => {
 					{/* Logout Section */}
 					<Flex alignItems={"center"} justifyContent={"space-between"} mb={4}>
 						<Box>
-							<Text fontWeight="bold">Logout</Text>
+							<Text fontWeight="bold" color={"red.700"}>Logout</Text>
 						</Box>
 						
 						{/* Aligning the Logout Icon (button) to the right */}
