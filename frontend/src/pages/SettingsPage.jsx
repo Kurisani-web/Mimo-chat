@@ -101,7 +101,19 @@ export const SettingsPage = ({user}) => {
 				</Box>*/}
 
 				{/* Appearance Settings */}
-				<Box>
+				<Box
+					p={4}
+					w="100%"
+					maxW="600px"
+					mx="auto"
+					//h="100vh"
+					overflowY="auto"
+					boxShadow="md"
+					borderRadius="lg"
+					borderWidth="1px"
+					bg={colorMode === 'dark' ? "gray.800" : ""}
+				
+				>
 					<Flex alignItems={"center"} justifyContent={"space-between"}>
 						<Box>
 							<Text fontWeight="bold">Appearance</Text>
@@ -119,8 +131,6 @@ export const SettingsPage = ({user}) => {
 					</Flex>
 				</Box>
 
-				<Divider />
-
 				{/* Report an Issue */}
 				<Box
 					p={4}
@@ -132,6 +142,7 @@ export const SettingsPage = ({user}) => {
 					boxShadow="md"
 					borderRadius="lg"
 					borderWidth="1px"
+					bg={colorMode === 'dark' ? "gray.800" : ""}
 				
 				>
 					<Flex alignItems="center" justifyContent="space-between" mb={4}>
@@ -149,6 +160,7 @@ export const SettingsPage = ({user}) => {
 							padding="5px 10px"         // Set padding for the button
 							fontSize="14px"            // Set font size
 							fontWeight="bold"          // Set font weight for text
+							boxShadow={"lg"}
 							_hover={{                  // Hover effect styling
 								backgroundColor: "#FF4500", // Change background color on hover
 								transform: "scale(1.05)",    // Slightly scale the button on hover
@@ -158,6 +170,11 @@ export const SettingsPage = ({user}) => {
 						</Button>
 						</Box>
 					</Flex>
+					<Divider 
+						mb={4} 
+						borderColor={colorMode === 'light' ? "gray.500" : "gray.700"} 
+					/>
+
 					<Box>
 						<Text fontWeight="bold">Terms and Privacy Policy</Text>
 						<Text color={"gray.600"} fontSize={"xs"} my={2}>
@@ -204,6 +221,7 @@ export const SettingsPage = ({user}) => {
 					borderRadius="lg"
 					borderWidth="1px"
 					mb={8}
+					bg={colorMode === 'dark' ? "gray.800" : ""}
 				>
 					{/* Freeze Your Account Section */}
 					<Flex alignItems={"center"} justifyContent={"space-between"} mb={4}>
@@ -244,6 +262,11 @@ export const SettingsPage = ({user}) => {
 						</Box>
 					</Flex>
 
+					<Divider 
+						mb={4} 
+						borderColor={colorMode === 'light' ? "gray.500" : "gray.700"} 
+					/>
+
 					{/* Logout Section */}
 					<Flex alignItems={"center"} justifyContent={"space-between"} mb={4}>
 						<Box>
@@ -260,16 +283,14 @@ export const SettingsPage = ({user}) => {
 							/>
 						</Box>
 					</Flex>
-					
-					<Divider />
-
-					<Box>
-						<Text color={"gray.600"} fontSize={"sm"} my={2}>
-							2024 © Mimo
-						</Text>
-					</Box>
 				</Box>
+				
       		</Stack>
+			<Box>
+				<Text color={"gray.600"} fontSize={"sm"} my={2}>
+					2024 © Mimo
+				</Text>
+			</Box>
 		</Box>
 	);
 };
