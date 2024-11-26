@@ -255,7 +255,7 @@ export const SettingsPage = ({user}) => {
 							By using our service, you agree to{" "}
 							<Link 
 								color="teal.500" 
-								href="https://your-terms-url.com" 
+								href=" https://mimo-bc8e9.web.app" 
 								isExternal
 								textDecoration={'underline'}
 								cursor={'pointer'}
@@ -269,7 +269,7 @@ export const SettingsPage = ({user}) => {
 							and{" "}
 							<Link 
 								color="teal.500" 
-								href="https://your-privacy-policy-url.com" 
+								href=" https://mimo-bc8e9.web.app" 
 								isExternal
 								textDecoration="underline"
 								_hover={{
@@ -393,9 +393,9 @@ export const SettingsPage = ({user}) => {
 
 						{/* Links to Terms and Privacy */}
 						<Text mt={4}><strong>Legal:</strong></Text>
-						<Link href="https://your-terms-url.com" isExternal color="teal.500">Privacy Policy</Link>
+						<Link href=" https://mimo-bc8e9.web.app" isExternal color="teal.500">Privacy Policy</Link>
 						<br />
-						<Link href="https://your-terms-url.com" isExternal color="teal.500">Terms of Service</Link>
+						<Link href=" https://mimo-bc8e9.web.app" isExternal color="teal.500">Terms of Service</Link>
 					</ModalBody>
 					<ModalFooter>
 						<Button colorScheme="blue" onClick={onClose}>Close</Button>
