@@ -4,16 +4,24 @@ import {
 	Divider, 
 	Flex, 
 	Link, 
+	Modal, 
+	ModalBody, 
+	ModalCloseButton, 
+	ModalContent, 
+	ModalFooter, 
+	ModalHeader, 
+	ModalOverlay, 
 	Stack, 
 	Switch, 
 	Text, 
 	Tooltip, 
-	useColorMode 
+	useColorMode, 
+	useDisclosure
 } from "@chakra-ui/react";
 import useShowToast from "../hooks/useShowToast";
 import useLogout from "../hooks/useLogout";
 import { FiLogOut } from "react-icons/fi";
-import {IoIosSnow } from "react-icons/io";
+import {IoIosMore, IoIosSnow } from "react-icons/io";
 import {MdOutlineMarkEmailUnread, MdOutlineDriveFileRenameOutline } from "react-icons/md";
 import { FaInfoCircle, FaRegUser } from "react-icons/fa";
 import { useRecoilValue } from "recoil";
@@ -22,6 +30,7 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 export const SettingsPage = ({user}) => {
 	const showToast = useShowToast();
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	const logout = useLogout();
 	const currentUser = useRecoilValue(userAtom); 
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -352,9 +361,47 @@ export const SettingsPage = ({user}) => {
 				
       		</Stack>
 			<Box>
-				<Text color={"gray.600"} fontSize={"sm"} my={2}>
+				{/* Pressable Text */}
+				<Text 
+					color={"gray.600"} 
+					fontSize={"sm"} 
+					my={2} 
+					_hover={{ cursor: 'pointer', textDecoration: 'underline' }} 
+					onClick={onOpen}
+				>
 					2024 © Mimo
 				</Text>
+
+				{/* Modal for App Information */}
+				<Modal isOpen={isOpen} onClose={onClose}>
+					<ModalOverlay />
+					<ModalContent>
+					<ModalHeader>Mimo</ModalHeader>
+					<ModalCloseButton />
+					<ModalBody>
+						{/* App Version Info */}
+						<Text mb={4}><strong>Version:</strong> 1.0.0</Text>
+						<Text mb={4}><strong>Release Date:</strong> December 2024</Text>
+
+						{/* Additional App Information */}
+						<Text mt={4}><strong>Features:</strong></Text>
+						<Text mb={2}>- Authentication</Text>
+						<Text mb={2}>- Dark Mode Support</Text>
+						<Text mb={2}>- Real-Time Messaging</Text>
+						<Text mb={2}>- Account Freeze Option</Text>
+						<IoIosMore color="teal" size={20}/>
+
+						{/* Links to Terms and Privacy */}
+						<Text mt={4}><strong>Legal:</strong></Text>
+						<Link href="https://your-terms-url.com" isExternal color="teal.500">Privacy Policy</Link>
+						<br />
+						<Link href="https://your-terms-url.com" isExternal color="teal.500">Terms of Service</Link>
+					</ModalBody>
+					<ModalFooter>
+						<Button colorScheme="blue" onClick={onClose}>Close</Button>
+					</ModalFooter>
+					</ModalContent>
+				</Modal>
 			</Box>
 		</Box>
 	);
