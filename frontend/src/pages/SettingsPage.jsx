@@ -344,7 +344,7 @@ export const SettingsPage = ({user}) => {
 					{/* Logout Section */}
 					<Flex alignItems={"center"} justifyContent={"space-between"} mb={4}>
 						<Box>
-							<Text fontWeight="bold" color={"red.700"}>Logout</Text>
+							<Text fontWeight="bold" color={"red"}>Logout</Text>
 						</Box>
 						
 						{/* Aligning the Logout Icon (button) to the right */}
@@ -380,7 +380,7 @@ export const SettingsPage = ({user}) => {
 					<ModalCloseButton />
 					<ModalBody>
 						{/* App Version Info */}
-						<Text mb={4}><strong>Version:</strong> 1.0.0</Text>
+						<Text mb={4}><strong>Version:</strong> 1.0.22.0</Text>
 						<Text mb={4}><strong>Release Date:</strong> December 2024</Text>
 
 						{/* Additional App Information */}
