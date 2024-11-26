@@ -14,10 +14,16 @@ import useShowToast from "../hooks/useShowToast";
 import useLogout from "../hooks/useLogout";
 import { FiLogOut } from "react-icons/fi";
 import {IoIosSnow } from "react-icons/io";
+import {MdOutlineMarkEmailUnread, MdOutlineDriveFileRenameOutline } from "react-icons/md";
+import { FaInfoCircle, FaRegUser } from "react-icons/fa";
+import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 export const SettingsPage = ({user}) => {
 	const showToast = useShowToast();
 	const logout = useLogout();
+	const currentUser = useRecoilValue(userAtom); 
 	const { colorMode, toggleColorMode } = useColorMode();
 
 	const freezeAccount = async () => {
@@ -114,6 +120,64 @@ export const SettingsPage = ({user}) => {
 					bg={colorMode === 'dark' ? "gray.800" : ""}
 				
 				>
+					<Flex direction="column" alignItems="flex-start" w="100%">
+						{/* Account Header */}
+						<Box mb={2}>
+							<Text fontWeight="bold">Account</Text>
+						</Box>
+
+						{/* Email */}
+						<Flex alignItems="center" mb={1}>
+							<MdOutlineMarkEmailUnread size={18} />
+							<Text ml={2} color={"gray.600"}>{user?.email}</Text>
+						</Flex>
+
+						{/* Username */}
+						<Flex alignItems="center" mb={1}>
+							<FaRegUser size={18} />
+							<Text ml={2} color={"gray.600"}>{user?.username}</Text>
+						</Flex>
+
+						{/*Bio*/}
+						<Flex alignItems="center" mb={1}>
+							<FaInfoCircle size={18} />
+							<Text ml={2} color={"gray.600"}>{user?.bio}</Text>
+						</Flex>
+
+						{/* Update Button (only visible for the logged-in user) */}
+						<Flex alignItems={"center"} justifyContent={"space-between"} w="100%">
+							{currentUser?._id === user._id && (
+							<Link as={RouterLink} to='/update'>
+								<Box mt={4} ml="auto">
+									<MdOutlineDriveFileRenameOutline size={20} color="teal" />
+								</Box>
+							</Link>
+							)}
+
+							{currentUser?._id !== user._id && (
+							<>
+								{/* Add content here for other users, if needed */}
+							</>
+							)}
+						</Flex>
+
+					</Flex>
+
+				</Box>
+
+				<Box
+					p={4}
+					w="100%"
+					maxW="600px"
+					mx="auto"
+					//h="100vh"
+					overflowY="auto"
+					boxShadow="md"
+					borderRadius="lg"
+					borderWidth="1px"
+					bg={colorMode === 'dark' ? "gray.800" : ""}
+				
+				>
 					<Flex alignItems={"center"} justifyContent={"space-between"}>
 						<Box>
 							<Text fontWeight="bold">Appearance</Text>
@@ -129,6 +193,7 @@ export const SettingsPage = ({user}) => {
 							/>
 						</Box>
 					</Flex>
+					
 				</Box>
 
 				{/* Report an Issue */}
