@@ -62,7 +62,7 @@ const Conversation = ({ conversation, isOnline }) => {
 
 			<Stack direction={"column"} fontSize={"sm"}>
 				<Text fontWeight='700' display={"flex"} alignItems={"center"}>
-					{user.username} {user?.email === 'kurisanim2@gmail.com' && <Image src='/verified.png' w={4} h={4} ml={1} />}
+					{user.username} {user?.email === 'kurisanim2@gmail.com' && <Image src='/verified.png' w={4} h={4} ml={1} my={1} />}
 				</Text>
 				<Text fontSize={"xs"} display={"flex"} alignItems={"center"} gap={1}>
 					{currentUser._id === lastMessage.sender ? (

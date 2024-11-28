@@ -1,4 +1,16 @@
-import { Box, Flex, Spinner, Button, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Spinner,
+  Button,
+  Drawer,
+  DrawerBody,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
 import Post from "../components/Post";
@@ -37,7 +49,9 @@ const HomePage = () => {
   return (
     <Flex gap="10" alignItems={"flex-start"}>
       <Box flex={70}>
-	  {!loading && Array.isArray(posts) && posts.length === 0 && <h1>Follow some users to see the Mimo</h1>}
+        {!loading && Array.isArray(posts) && posts.length === 0 && (
+          <h1>Follow some users to see the Mimo</h1>
+        )}
 
         {loading && (
           <Flex justify="center">
@@ -45,9 +59,11 @@ const HomePage = () => {
           </Flex>
         )}
 
-		{!loading && Array.isArray(posts) && posts.map((post) => (
-		<Post key={post._id} post={post} postedBy={post.postedBy} />
-		))}
+        {!loading &&
+          Array.isArray(posts) &&
+          posts.map((post) => (
+            <Post key={post._id} post={post} postedBy={post.postedBy} />
+          ))}
       </Box>
 
       {/* Sidebar button for small screens */}
@@ -66,35 +82,35 @@ const HomePage = () => {
         Suggested Users
       </Button>
 
-      	{/* Sidebar (Drawer) for small screens */}
-      	<Drawer isOpen={isOpen} onClose={onClose} placement="right">
-        	<DrawerOverlay>
-				<DrawerContent 
-					sx={{ 
-						bg: "linear-gradient(to right, #3b0764, #000000)", 
-						color: "white", 
-						maxWidth: "260px"
-					}}
-				>
-            		<DrawerCloseButton />
-            		<DrawerHeader>Mimo</DrawerHeader>
-            		<DrawerBody>
-              			<SuggestedUsers />
-            		</DrawerBody>
-          		</DrawerContent>
-        	</DrawerOverlay>
-    	</Drawer>
+      {/* Sidebar (Drawer) for small screens */}
+      <Drawer isOpen={isOpen} onClose={onClose} placement="right">
+        <DrawerOverlay>
+          <DrawerContent
+            sx={{
+              bg: "linear-gradient(to right, #3b0764, #000000)",
+              color: "white",
+              maxWidth: "260px",
+            }}
+          >
+            <DrawerCloseButton />
+            <DrawerHeader>Mimo</DrawerHeader>
+            <DrawerBody>
+              <SuggestedUsers />
+            </DrawerBody>
+          </DrawerContent>
+        </DrawerOverlay>
+      </Drawer>
 
       {/* Suggested Users section for medium screens and above */}
-		<Box
-			flex={30}
-			display={{
-			base: "none",
-			md: "block",
-			}}
-    	>
-        	<SuggestedUsers />
-      	</Box>
+      <Box
+        flex={30}
+        display={{
+          base: "none",
+          md: "block",
+        }}
+      >
+        <SuggestedUsers />
+      </Box>
     </Flex>
   );
 };

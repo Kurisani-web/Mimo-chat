@@ -8,7 +8,7 @@ const createPost = async (req, res) => {
 		let { img } = req.body;
 
 		if (!postedBy || !text) {
-			return res.status(400).json({ error: "Postedby and text fields are required" });
+			return res.status(400).json({ error: "You cannot post empty Mimo" });
 		}
 
 		const user = await User.findById(postedBy);

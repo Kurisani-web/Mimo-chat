@@ -11,6 +11,7 @@ import {
   getFollowers,
 } from "../controllers/userController.js";
 import protectRoute from "../middlewares/protectRoute.js";
+import User from "../models/userModel.js";
 
 const router = express.Router();
 

@@ -228,7 +228,7 @@ export const SettingsPage = ({user}) => {
 						</Box>
 						<Box ml={4}>
 						<Button 
-							onClick={()=> window.location.href = "mailto:kurisani2@gmail.com"} 
+							onClick={()=> window.location.href = "mailto:org.mimo@gmail.com"} 
 							backgroundColor={"teal"}  // Set custom background color
 							borderRadius="md"          // Set border radius for rounded corners
 							padding="5px 10px"         // Set padding for the button
@@ -255,7 +255,8 @@ export const SettingsPage = ({user}) => {
 							By using our service, you agree to{" "}
 							<Link 
 								color="teal.500" 
-								href="https://mimo-bc8e9.web.app" 
+								href="https://mimo-bc8e9.web.app"
+								target="_blank" 
 								isExternal
 								textDecoration={'underline'}
 								cursor={'pointer'}
@@ -269,7 +270,8 @@ export const SettingsPage = ({user}) => {
 							and{" "}
 							<Link 
 								color="teal.500" 
-								href="https://mimo-bc8e9.web.app" 
+								href="https://mimo-bc8e9.web.app"
+								target="_blank" 
 								isExternal
 								textDecoration="underline"
 								_hover={{
@@ -373,7 +375,7 @@ export const SettingsPage = ({user}) => {
 				</Text>
 
 				{/* Modal for App Information */}
-				<Modal isOpen={isOpen} onClose={onClose}>
+				<Modal isOpen={isOpen} onClose={onClose} isCentered>
 					<ModalOverlay />
 					<ModalContent>
 					<ModalHeader>Mimo</ModalHeader>
@@ -393,9 +395,9 @@ export const SettingsPage = ({user}) => {
 
 						{/* Links to Terms and Privacy */}
 						<Text mt={4}><strong>Legal:</strong></Text>
-						<Link href="https://mimo-bc8e9.web.app" isExternal color="teal.500">Privacy Policy</Link>
+						<Link href="https://mimo-bc8e9.web.app" isExternal color="teal.500" target="_blank">Privacy Policy</Link>
 						<br />
-						<Link href="https://mimo-bc8e9.web.app" isExternal color="teal.500">Terms of Service</Link>
+						<Link href="https://mimo-bc8e9.web.app" isExternal color="teal.500" target="_blank">Terms of Service</Link>
 					</ModalBody>
 					<ModalFooter>
 						<Button colorScheme="blue" onClick={onClose}>Close</Button>

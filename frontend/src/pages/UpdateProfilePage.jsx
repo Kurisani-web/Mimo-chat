@@ -9,11 +9,13 @@ import {
 	useColorModeValue,
 	Avatar,
 	Center,
+	Link
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import userAtom from "../atoms/userAtom";
 import usePreviewImg from "../hooks/usePreviewImg";
+import { Link as RouterLink } from "react-router-dom";
 import useShowToast from "../hooks/useShowToast";
 
 export default function UpdateProfilePage() {
@@ -137,16 +139,18 @@ export default function UpdateProfilePage() {
 						/>
 					</FormControl>
 					<Stack spacing={6} direction={["column", "row"]}>
+					<Link as={RouterLink} to={`/${user.username}`}>
 						<Button
 							bg={"red.400"}
 							color={"white"}
-							w='full'
+							w="full"
 							_hover={{
 								bg: "red.500",
 							}}
 						>
 							Cancel
 						</Button>
+					</Link>
 						<Button
 							bg={"green.400"}
 							color={"white"}

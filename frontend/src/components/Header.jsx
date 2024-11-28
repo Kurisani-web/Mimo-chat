@@ -41,7 +41,11 @@ const Header = () => {
 			{user && (
 				<Flex alignItems={"center"} gap={4}>
 					<Link as={RouterLink} to={`/${user.username}`}>
-						<RxAvatar size={24} />
+						{user?.profilePic ? (
+							<img src={user.profilePic} alt="User Profile" style={{ width: 24, height: 24, borderRadius: '50%' }} />
+						) : (
+							<RxAvatar size={24} />
+						)}
 					</Link>
 					<Link as={RouterLink} to={`/chat`}>
 						<BsFillChatQuoteFill size={20} />
