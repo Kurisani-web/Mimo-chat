@@ -104,7 +104,7 @@ const logoutUser = (req, res) => {
 		res.status(200).json({ message: "User logged out successfully" });
 	} catch (err) {
 		res.status(500).json({ error: err.message });
-		console.log("Error in signupUser: ", err.message);
+		console.log("Error in logoutUser: ", err.message);
 	}
 };
 
@@ -241,39 +241,20 @@ const freezeAccount = async (req, res) => {
 
 const getFollowers = async (req, res) => {
 	try {
-	  const { userId } = req.params; // Assuming userId is passed in params
-	  const user = await User.findById(userId).populate('followers', 'name email'); // Populate followers' name and email fields
-  
-	  if (!user) {
-		return res.status(404).json({ error: 'User not found' });
-	  }
-  
-	  // Ensure followers is an array
-	  if (!Array.isArray(user.followers)) {
-		return res.status(500).json({ error: 'Followers data is corrupted' });
-	  }
-  
-	  // Return followers data
-	  res.status(200).json({ followers: user.followers });
-	} catch (err) {
-	  console.log("Error in getFollowers: ", err.message);
-	  res.status(500).json({ error: err.message });
+		console.log("getFollowers Route Hit"); // Debug log
+		const userId = req.user.id; // Assumes the user ID is set in protectRoute
+		const user = await User.findById(userId).populate("followers");
+
+		if (!user) {
+			return res.status(404).json({ error: "User not found" });
+		}
+
+		res.status(200).json({ followers: user.followers });
+	} catch (error) {
+		console.error("Error in getFollowers:", error.message);
+		res.status(500).json({ error: "Server error" });
 	}
 };
-  
-
-/*const getUserFollowers = async (req, res) => {
-    try {
-        const { userId } = req.params; // Use userId from request params
-        const user = await User.findById(userId).select("followers"); // Or adapt this to your model's field structure
-        if (!user) return res.status(404).json({ error: "User not found" });
-
-        res.status(200).json(user.followers);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};*/
-
 
 export {
 	signupUser,
@@ -285,5 +266,4 @@ export {
 	getSuggestedUsers,
 	freezeAccount,
 	getFollowers,
-	//getUserFollowers,
 };

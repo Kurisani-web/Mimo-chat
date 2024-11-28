@@ -9,6 +9,7 @@ import messageRoutes from "./routes/messageRoutes.js";
 import { v2 as cloudinary } from "cloudinary";
 import { app, server } from "./socket/socket.js";
 import job from "./cron/cron.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -23,6 +24,9 @@ cloudinary.config({
 	api_key: process.env.CLOUDINARY_API_KEY,
 	api_secret: process.env.CLOUDINARY_API_SECRET,
 });
+
+// Allow requests from your frontend
+app.use(cors({ origin: "http://localhost:3000" }));
 
 // Middlewares
 app.use(express.json({ limit: "50mb" })); // To parse JSON data in the req.body
