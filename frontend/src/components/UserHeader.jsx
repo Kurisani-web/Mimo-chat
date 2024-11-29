@@ -258,7 +258,8 @@ const UserHeader = ({ user }) => {
                       Edit Profile
                     </MenuItem>
                   </Link>
-                  <Divider />
+                  
+                  <Divider my={2} />
                   <MenuItem
                     _hover={{
                       bg: colorMode === "dark" ? "gray.700" : "gray.500",
