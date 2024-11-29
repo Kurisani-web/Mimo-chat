@@ -27,21 +27,21 @@ cloudinary.config({
 
 /// Allow requests from your frontend
 const allowedOrigins = [
-  "http://localhost:3000",
-  "https://mimo-fffz.onrender.com",
+  "http://localhost:3000",      // For local development
+  "https://mimo-fffz.onrender.com", // Production frontend
 ];
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps or Postman)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  credentials: true, // Optional: Allow credentials (e.g., cookies)
+  credentials: true, // Allow cookies and credentials
 }));
+
 
 // Middlewares
 app.use(express.json({ limit: "50mb" })); // To parse JSON data in the req.body
