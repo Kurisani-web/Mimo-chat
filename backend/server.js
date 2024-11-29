@@ -20,13 +20,30 @@ const PORT = process.env.PORT || 5000;
 const __dirname = path.resolve();
 
 cloudinary.config({
-	cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-	api_key: process.env.CLOUDINARY_API_KEY,
-	api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 // Allow requests from your frontend
-app.use(cors({ origin: "http://localhost:3000" }));
+const cors = require("cors");
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://mimo-fffz.onrender.com",
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps or Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true, // Optional: Allow credentials (e.g., cookies)
+}));
 
 // Middlewares
 app.use(express.json({ limit: "50mb" })); // To parse JSON data in the req.body
@@ -41,12 +58,14 @@ app.use("/api/messages", messageRoutes);
 // http://localhost:5000 => backend,frontend
 
 if (process.env.NODE_ENV === "production") {
-	app.use(express.static(path.join(__dirname, "/frontend/dist")));
+  app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-	// react app
-	app.get("*", (req, res) => {
-		res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-	});
+  // react app
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  });
 }
 
-server.listen(PORT, () => console.log(`Server started at http://localhost:${PORT}`));
+server.listen(PORT, () =>
+  console.log(`Server started at http://localhost:${PORT}`)
+);
