@@ -38,11 +38,10 @@ app.use(cors({
     } else {
       callback(new Error("Not allowed by CORS"));
     }
-		console.log('Origin:', origin); // Log the origin in your CORS callback to ensure it's being received correctly
   },
   credentials: true, // Allow cookies and credentials
-	
 }));
+
 
 
 // Middlewares
