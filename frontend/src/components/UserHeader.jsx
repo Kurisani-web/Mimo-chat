@@ -37,11 +37,11 @@ const UserHeader = ({ user }) => {
       navigate(`/followers/${user._id}`); // Navigate to the followers page for the logged-in user
     } else {
       // Play notification sound
-      const audio = new Audio("/sounds/software.wav"); // Path to your sound file
+      {/*const audio = new Audio("/sounds/software.wav"); // Path to your sound file
       audio.volume = 0.1;
       audio.play().catch((error) => {
         console.error("Failed to play sound:", error);
-      });
+      });*/}
 
       // Show the toast
       toast({
