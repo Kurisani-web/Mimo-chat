@@ -25,9 +25,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-// Allow requests from your frontend
-const cors = require("cors");
-
+/// Allow requests from your frontend
 const allowedOrigins = [
   "http://localhost:3000",
   "https://mimo-fffz.onrender.com",
